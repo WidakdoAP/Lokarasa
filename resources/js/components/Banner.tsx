@@ -1,17 +1,14 @@
-import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-} from "@/components/ui/card";
-import type { CarouselApi } from "@/components/ui/carousel";
+import Autoplay from 'embla-carousel-autoplay';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import type { CarouselApi } from '@/components/ui/carousel';
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
-} from "@/components/ui/carousel";
+} from '@/components/ui/carousel';
 
 export default function Banner() {
     const [api, setApi] = useState<CarouselApi>();
@@ -22,23 +19,24 @@ export default function Banner() {
         if (!api) {
             return;
         }
-        
+
         const onSelect = () => {
             setCurrent(api.selectedScrollSnap());
         };
-        
+
         onSelect();
-        
-        api.on("select", onSelect);
-        
+
+        api.on('select', onSelect);
+
         return () => {
-            api.off("select", onSelect);
+            api.off('select', onSelect);
         };
     }, [api]);
 
     return (
         <>
-            <Carousel className="w-full mb-4"
+            <Carousel
+                className="mb-4 w-full"
                 opts={{
                     loop: true,
                 }}
@@ -50,21 +48,23 @@ export default function Banner() {
                 ]}
             >
                 <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                    <CarouselItem key={index}>
-                        <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-5/1 items-center justify-center p-6">
-                                    <span className="text-4xl font-semibold">{index + 1}</span>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </CarouselItem>
-                ))}
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <CarouselItem key={index}>
+                            <div className="p-1">
+                                <Card>
+                                    <CardContent className="flex aspect-5/1 items-center justify-center p-6">
+                                        <span className="text-4xl font-semibold">
+                                            {index + 1}
+                                        </span>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ))}
                 </CarouselContent>
             </Carousel>
 
-            <div className="flex justify-end mb-4 gap-6 items-center">
+            <div className="mb-4 flex items-center justify-end gap-6">
                 <Button
                     variant="outline"
                     size="icon"
@@ -78,8 +78,10 @@ export default function Banner() {
                         <span
                             key={index}
                             className={`h-2 rounded-full transition-all duration-300 ${
-                                current === index ? "w-8 bg-primary" : "w-2 bg-accent"
-                                }`}
+                                current === index
+                                    ? 'w-8 bg-primary'
+                                    : 'w-2 bg-accent'
+                            }`}
                         />
                     ))}
                 </div>
