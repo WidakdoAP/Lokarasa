@@ -20,7 +20,7 @@ class ProductController extends Controller
                 'name' => $product->name,
                 'description' => $product->description,
                 'price' => $product->price,
-                'image' => filled($product->image) ? asset('storage/' . $product->image) : null,
+                'image' => filled($product->image) ? asset('storage/'.$product->image) : null,
             ]),
         ]);
     }
@@ -34,6 +34,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'image' => $path,
         ]);
+
         return redirect()->route('market');
     }
 }

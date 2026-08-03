@@ -12,7 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $price
  * @property string|null $image
  */
-class Product extends Model {
+class Product extends Model
+{
     use HasFactory;
 
     protected $fillable = [

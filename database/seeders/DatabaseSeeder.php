@@ -6,10 +6,12 @@ use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder
+{
     use WithoutModelEvents;
 
-    public function run(): void {
+    public function run(): void
+    {
         Product::factory()->create([
             'name' => 'Risoles',
             'price' => 18000,
