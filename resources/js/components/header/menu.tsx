@@ -21,7 +21,7 @@ export default function Menu({ role }: MenuProps) {
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <Button asChild variant="ghost" size="icon">
-                            <Link href="/market">
+                            <Link href="/">
                                 {' '}
                                 {/* /admin */}
                                 <PanelsTopLeft className="h-6 w-6" />
@@ -36,9 +36,7 @@ export default function Menu({ role }: MenuProps) {
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <Button asChild variant="ghost" size="icon">
-                            <Link href="/market">
-                                {' '}
-                                {/* /cart */}
+                            <Link href="/cart">
                                 <ShoppingCart className="h-6 w-6" />
                             </Link>
                         </Button>

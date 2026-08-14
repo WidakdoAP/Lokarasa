@@ -195,3 +195,23 @@
         @apply bg-background text-foreground;
     }
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+    animation: theme-reveal 500ms ease-in-out;
+}
+
+@keyframes theme-reveal {
+    from {
+        clip-path: circle(0% at var(--theme-x) var(--theme-y));
+    }
+
+    to {
+        clip-path: circle(150% at var(--theme-x) var(--theme-y));
+    }
+}
