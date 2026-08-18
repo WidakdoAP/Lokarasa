@@ -7,12 +7,17 @@ import { initializeTheme } from '@/hooks/use-appearance';
 
 import AppLayout from '@/layouts/app-layout';
 import AuthLayout from '@/layouts/auth-layout';
+import AdminLayout from './layouts/admin-layout';
 
 const appName = import.meta.env.VITE_APP_NAME;
 
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
     layout: (name) => {
+        if (name.startsWith('admin/')) {
+            return AdminLayout;
+        }
+
         switch (true) {
             case
                 name === 'auth/login' ||
@@ -20,6 +25,11 @@ createInertiaApp({
                 name === 'auth/forgot-password' ||
                 name === 'auth/reset-password':
                 return AuthLayout;
+            case
+                name === 'admin/dashboard' ||
+                name === 'admin/orders' ||
+                name === 'admin/products':
+                return AdminLayout;
             default:
                 return AppLayout;
         }

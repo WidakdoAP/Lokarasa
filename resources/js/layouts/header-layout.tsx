@@ -17,7 +17,7 @@ export default function HeaderLayout() {
                 <div className="flex items-center justify-between md:hidden">
                     <Logo />
                     <div className="flex items-center gap-2">
-                        <Menu role="user" />
+                        <Menu />
                         {auth.user ? (
                           <UserAvatar />
                         ) : (
@@ -43,7 +43,7 @@ export default function HeaderLayout() {
                     <div className="flex-1">
                         <SearchBar />
                     </div>
-                    <Menu role="user" />
+                    <Menu />
                     {auth.user ? (
                       <UserAvatar />
                     ) : (
