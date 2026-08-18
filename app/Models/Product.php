@@ -5,19 +5,14 @@ namespace App\Models;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * @property int $id
- * @property string $name
- * @property string $description
- * @property string $price
- * @property string $category
- */
 class Product extends Model
 {
     /** @use HasFactory<ProductFactory> */
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -29,7 +24,7 @@ class Product extends Model
     /**
      * @return HasMany<ProductImage, $this>
      */
-    public function images()
+    public function images(): HasMany
     {
         return $this->hasMany(ProductImage::class);
     }
